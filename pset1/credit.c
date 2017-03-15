@@ -52,31 +52,35 @@ int luhn(int *cra)
 	
 		for (int j2 = 0; j2 < 16; j2++ ) 
 		{
-			 printf("Element[%d] = %d\n", j2, cra[j2] );
+	//		 printf("Element[%d] = %d\n", j2, cra[j2] );
 		}
-		printf("\n");
+	//	printf("\n");
 	int even[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	int odd = 0;
-	for (int i = 0; i < 16; i = i + 2)
+	for (int i = 0; i < 16; )
 		{
-			int j = 1;
-			if (cra[j] > 4 )
+		//	int j = 1;
+			if (cra[i+1] > 4)
 				{
 					even[i]=1;
-					even[i+1]=((2*cra[j])%10);
-					printf("Element[%i] = %i\n", i, even[i] );
-					printf("Element[%i] = %i\n", i+1, even[i+1] );
+					even[i+1]=((2*cra[i+1])%10);
+				//	printf("Element[%i] = %i\n", i, even[i] );
+				//	printf("Element[%i] = %i\n", i+1, even[i+1] );
+			//	printf("IF\n");
+				i = i + 2;
 				}
 			else
 				{
-					even[i] = ((cra[j])*2);
+					even[i] = ((cra[i+1])*2);
 				//	even[i+1] = 0;
 				//	for (int j2 = 0; j2 < 16; j2++ ) 
 				//		{
 				//			 printf("Element[%d] = %d\n", j2, even[j2] );
 				//		}
+			//	printf("ELSE\n");
+				i = i + 2;
 				}
-			j = j + 2;
+			
 		} 
 
 //-------------------------------------------------------
@@ -106,7 +110,7 @@ int luhn(int *cra)
 
 				
 		for (int j = 0; j < 16; j++ ) {
-       printf("Element[%d] = %d\n", j, even[j] );
+    //   printf("Element[%d] = %d\n", j, even[j] );
     }
 		int es = 0;
 		for (int i = 0; i < 16; i++)
@@ -115,16 +119,14 @@ int luhn(int *cra)
 			//printf("EVEN: %i, %i\n", es, i);
 			}
 			//printf("EVEN: %i\n", es);
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < 16; i=i+2)
 		{
-			int jo = 0;
-			odd = odd + cra[jo];
-			jo = jo + 2;
+			odd = odd + cra[i];
 		}
-		printf("ODD: %i\n", odd);
+	//	printf("ODD: %i\n", odd);
 		int sum = 0;
 		sum = es + odd;
-		printf("SUM: %i\n", sum);
+	//	printf("SUM: %i\n", sum);
 		if (sum%10 == 0) {
 			return 1;
 		} else {
