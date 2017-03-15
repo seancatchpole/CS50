@@ -49,19 +49,20 @@ int main(void)
 int luhn(int *cra)
 	{
 //-----------------------------------------------------------
-		for (int j2 = 0; j2 < 16; j2++ )
+	
+		for (int j2 = 0; j2 < 16; j2++ ) 
 		{
-			 printf("Element[%d] = %d\n", j2, cra[j2]*2 );
+			 printf("Element[%d] = %d\n", j2, cra[j2] );
 		}
 		printf("\n");
-	int even[16];
+	int even[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	int odd = 0;
 	for (int i = 0; i < 16; i = i + 2)
 		{
 			int j = 1;
-			if ((cra[j]*2) > 9 )
+			if (cra[j] > 4 )
 				{
-					even[i]=((2*cra[j])/10);
+					even[i]=1;
 					even[i+1]=((2*cra[j])%10);
 					printf("Element[%i] = %i\n", i, even[i] );
 					printf("Element[%i] = %i\n", i+1, even[i+1] );
@@ -69,15 +70,18 @@ int luhn(int *cra)
 			else
 				{
 					even[i] = ((cra[j])*2);
-					even[i+1] = 0;
+				//	even[i+1] = 0;
+				//	for (int j2 = 0; j2 < 16; j2++ ) 
+				//		{
+				//			 printf("Element[%d] = %d\n", j2, even[j2] );
+				//		}
 				}
 			j = j + 2;
-		}
-
+		} 
 
 //-------------------------------------------------------
 /*
-		do
+		do 
 		{
 			int i = 0;
 			int j = 1;
@@ -95,12 +99,12 @@ int luhn(int *cra)
 				}
 			j = j + 2;
 			i=i+2;
-		}
+		} 
 				while(i<16);
 */
 //----------------------------------------------------------
 
-
+				
 		for (int j = 0; j < 16; j++ ) {
        printf("Element[%d] = %d\n", j, even[j] );
     }
@@ -128,6 +132,7 @@ int luhn(int *cra)
 		}
 
 	}
+
 
 //returns nth digit (credit mod 10^(n-1))/(10^(n-2))
 long long digit(long long  n, long long credit)
