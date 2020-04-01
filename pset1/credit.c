@@ -22,7 +22,7 @@ int main(void)
 			}
 	if (luhn(cr_a) == 1)
 		{
-			if ((cr_a[15] == 0) && (cr_a[14] == 3))
+			if ((cr_a[15] == 0) && (cr_a[14] == 3)  &&  ((cr_a[13] == 7)||(cr_a[13] == 4)))
 				{
 					printf("AMEX\n");
 				}
